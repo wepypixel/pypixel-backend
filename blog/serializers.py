@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import BlogPost, Category, AboutUs, ContactUs
+from .models import BlogPost, Category, AboutUs
 from django.conf import settings
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -24,8 +24,3 @@ class AboutUsSerializer(serializers.ModelSerializer):
         model = AboutUs
         fields = '__all__'
 
-
-class ContactUsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = ContactUs
-        fields = ['name', 'email', 'subject', 'message']

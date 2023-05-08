@@ -66,6 +66,9 @@ CORS_ORIGIN_WHITELIST = [
     "http://*.pypixel.com"
 ]
 
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
 
 TEMPLATES = [
     {
