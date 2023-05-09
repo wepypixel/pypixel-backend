@@ -58,6 +58,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'pypixel.urls'
@@ -66,8 +67,8 @@ CORS_ORIGIN_WHITELIST = [
     "http://*.pypixel.com"
 ]
 
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
 
 
 TEMPLATES = [
@@ -147,7 +148,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -167,7 +168,6 @@ AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
 AWS_S3_REGION_NAME =  env('AWS_S3_REGION_NAME')
-AWS_S3_SIGNATURE_NAME = env('AWS_S3_SIGNATURE_NAME')
 AWS_DEFAULT_ACL = env('AWS_DEFAULT_ACL')
 AWS_S3_VERITY = env('AWS_S3_VERITY')
 AWS_S3_FILE_OVERWRITE = env('AWS_S3_FILE_OVERWRITE')
